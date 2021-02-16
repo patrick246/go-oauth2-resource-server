@@ -32,7 +32,7 @@ func VerifyOpenIdConnectJwtToken(issuer, signingAlgorithm string, next http.Hand
 			return
 		}
 
-		tokenOnly := strings.TrimPrefix(authHeader, "Bearer")
+		tokenOnly := strings.TrimPrefix(authHeader, "Bearer ")
 		if authHeader == tokenOnly {
 			handleError(writer, 401, "invalid_request", "invalid auth header type, expected Bearer", issuer)
 			return
